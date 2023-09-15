@@ -1,0 +1,26 @@
+---
+import LocationList from "../../components/locations/list";
+import LocationPagination from "../../components/locations/pagination";
+import Layout, { type Props as LayoutProps } from "../../layouts/Layout.astro";
+import { getCollection, getEntryBySlug, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+  const locations = await getCollection("locations");
+  const page = await getEntryBySlug("pages", "locations");
+  return paginate(locations, { pageSize: page.data.page_size });
+}
+
+const page = await getEntryBySlug("pages", "locations");
+const frontmatter = page.data as LayoutProps;
+const pagination = Astro.props.page;
+const { data: locations } = pagination;
+if (!page) {
+  throw new Error("Can't find that page info");
+}
+
+---
+
+<Layout {...frontmatter}>
+  <LocationList locations={locations} page{page}/>
+  <LocationPagination pagination={pagination} />
+</Layout>

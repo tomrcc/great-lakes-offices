@@ -1,22 +1,22 @@
 ---
-import ProfileLayout from "../../layouts/Profile.astro";
+import LocationLayout from "../../layouts/Location.astro";
 import { getCollection, getEntryBySlug } from "astro:content";
 
 export async function getStaticPaths() {
-  const profiles = await getCollection("profiles");
-  return profiles.map((profile) => ({ params: { slug: profile.slug } }));
+  const locations = await getCollection("locations");
+  return locations.map((location) => ({ params: { slug: location.slug } }));
 }
 
 if (!Astro.params.slug) {
   throw new Error("Post slug is undefined");
 }
-const profile = await getEntryBySlug("profiles", Astro.params.slug);
+const profile = await getEntryBySlug("locations", Astro.params.slug);
 if (!profile) {
   throw new Error("Failed to get profile with slug: " + Astro.params.slug);
 }
 const { Content } = await profile.render();
 ---
 
-<ProfileLayout {...profile.data} body={profile.body}>
+<LocationLayout {...profile.data} body={profile.body}>
   <Content />
-</ProfileLayout>
+</LocationLayout>

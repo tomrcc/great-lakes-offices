@@ -6,21 +6,27 @@ import '../styles/main.scss';
 
 type Props =
   | {
-      name: string;
-      designation: string;
+      title: string;
+      city: string;
+      country: string;
+      courses: Array<string>;
       image: string;
       image_alt: string;
+      logo_image: string;
       body: string;
     }
   | MarkdownLayoutProps<{
-      name: string;
-      designation: string;
+      title: string;
+      city: string;
+      country: string;
+      courses: Array<string>;
       image: string;
       image_alt: string;
+      logo_image: string;
     }>;
 
 const props = Astro.props.frontmatter ?? Astro.props;
-const { name, designation, image, image_alt } = props;
+const { title, city, country, courses, image, image_alt, logo_image } = props;
 
 ---
 
@@ -39,14 +45,20 @@ const { name, designation, image, image_alt } = props;
             alt={image_alt}
           />
             <div>
-              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">{name}</h1>
+              <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">{title}</h1>
               <div>
-                <p>{designation}</p>
+                <p>{city}</p>
+                <p>{country}</p>
               </div>
               <div class="mx-auto my-16 max-w-[900px] font-light leading-6">
-                <h2>About {name}</h2>
-                <slot />
+                <h2>Courses at {title}</h2>
+                <ul class="grid lg:grid-cols-2 2xl:grid-cols-3 justify-center gap-12 mt-8 md:mt-16">
+                  {courses.map((course: string, i: number) => (
+                    <li>{course}</li>
+                  ))}
+                </ul>
               </div>
+              <slot />
             </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 ---
 import PageLayout from "../layouts/Page.astro";
-import { getCollection, type CollectionEntry, getEntryBySlug } from "astro:content";
-import ProfileList from "src/components/profiles/list";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export interface Props {
   page: CollectionEntry<"pages">;

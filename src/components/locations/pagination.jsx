@@ -17,7 +17,7 @@ export default function ProfilePagination({ pagination }) {
           className={`page-link btn btn-secondary ${
             i === currentPage ? "active" : ""
           }`}
-          href={i === 1 ? "/" : `/profiles/${i}`}
+          href={i === 1 ? "/" : `/locations/${i}`}
         >
           {i}
         </a>

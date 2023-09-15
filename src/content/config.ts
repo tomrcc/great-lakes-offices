@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
 const seoSchema = z
-  .object({
+.object({
     page_description: z.string().nullable(),
     canonical_url: z.string().nullable(),
     featured_image: z.string().nullable(),
@@ -12,13 +12,15 @@ const seoSchema = z
   })
   .optional();
 
-const profilesCollection = defineCollection({
+const locationsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
-    name: z.string(),
-    designation: z.string(),
+    city: z.string(),
+    country: z.string(),
+    courses: z.array(z.string()),
     image: z.string(),
     image_alt: z.string(),
+    logo_image: z.string(),
     seo: seoSchema,
   }),
 });
@@ -46,6 +48,6 @@ const pagesCollection = defineCollection({
 });
 
 export const collections = {
-  profiles: profilesCollection,
+  locations: locationsCollection,
   pages: pagesCollection,
 };
