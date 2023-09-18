@@ -36,11 +36,10 @@ let profiles = [];
 for (let i = 0; i < allProfiles.length; i++) {
   const profile = allProfiles[i];
 
-  if (title === profile.location) {
+  if (title === profile.data.location) {
     profiles.push(profile);
   }
 }
-
 ---
 
 <Layout {...props}>
