@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Nikolas Mcconnell",
+    "designation": "Co-Founder & CEO",
+    "image": "/images/team/1.jpg",
+    "image_alt": "Team member: Nikolas Mcconnell",
+    "location": "Baker College",
+    "slug": "nikolas-mcconnell"
+  },
+  {
+    "name": "Keiren Mcculloch",
+    "designation": "CMO",
+    "image": "/images/team/2.jpg",
+    "image_alt": "Team member: Keiren Mcculloch",
+    "location": "Baker College",
+    "slug": "keiren-mcculloch"
+  },
+  {
+    "name": "Piers Reyes",
+    "designation": "Head of Marketing",
+    "image": "/images/team/3.jpg",
+    "image_alt": "Team member: Piers Reyes",
+    "location": "Baker College",
+    "slug": "piers-reyes"
+  },
+  {
+    "name": "Zachary Arias",
+    "designation": "Co-founder & CTO",
+    "image": "/images/team/4.jpg",
+    "image_alt": "Team member: Zachary Arias",
+    "location": "Baker College",
+    "slug": "zachary-arias"
+  },
+  {
+    "name": "Harmony Dunlop",
+    "designation": "Head of Sales",
+    "image": "/images/team/5.jpg",
+    "image_alt": "Team member: Harmony Dunlop",
+    "location": "Hanszen College",
+    "slug": "harmony-dunlop"
+  },
+  {
+    "name": "Elize Schwartz",
+    "designation": "CRO",
+    "image": "/images/team/6.jpg",
+    "image_alt": "Team member: Elize Schwartz",
+    "location": "Hansen College",
+    "slug": "elize-schwartz"
+  },
+  {
+    "name": "Coen Simmons",
+    "designation": "Head of Design",
+    "image": "/images/team/7.jpg",
+    "image_alt": "Team member: Coen Simmons",
+    "location": "Jones College",
+    "slug": "coen-simmons"
+  },
+  {
+    "name": "Fran Figureson",
+    "designation": "Head of People",
+    "image": "/images/team/8.jpg",
+    "image_alt": "Team member: Fran Figureson",
+    "location": "Will Rice College",
+    "slug": "fran-figureson"
+  }
+]

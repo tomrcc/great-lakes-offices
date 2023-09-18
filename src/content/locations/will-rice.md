@@ -9,7 +9,7 @@ courses:
   - Cognitive Sciences
 image: /images/locations/will-rice-college.jpeg
 image_alt: Will Rice College
-logo_image: /images/locations/will-rice-crest.jpeg
+logo_image: /images/locations/will-rice-crest.png
 seo:
   page_description: "We believe that a good email marketing strategy is the key to growth. So we’re helping you grow your business with tools and resources that make email marketing easy."
   canonical_url:

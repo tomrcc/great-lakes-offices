@@ -1,8 +1,10 @@
 ---
 import Layout from "./Layout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import type { MarkdownLayoutProps } from "astro";
 import '../styles/main.scss';
+import ProfileList from "../components/profiles/list"
+import allProfiles from "../../data/profiles.json";
 
 type Props =
   | {
@@ -25,8 +27,19 @@ type Props =
       logo_image: string;
     }>;
 
+
 const props = Astro.props.frontmatter ?? Astro.props;
 const { title, city, country, courses, image, image_alt, logo_image } = props;
+
+let profiles = [];
+
+for (let i = 0; i < allProfiles.length; i++) {
+  const profile = allProfiles[i];
+
+  if (title === profile.location) {
+    profiles.push(profile);
+  }
+}
 
 ---
 
@@ -34,33 +47,34 @@ const { title, city, country, courses, image, image_alt, logo_image } = props;
   <main>
     <section>
       <div>
-        <a class="inline-flex items-center py-5 hover:text-[#034AD8]" href="/profiles/">
+        <a class="inline-flex items-center py-5 hover:text-[#034AD8]" href="/locations/">
           <i class="ph-arrow-left mr-2 text-xl" ></i>
           <span class="hover:underline hover:underline-offset-4">Back</span>
         </a>
         <div class="grid md:grid-cols-2 gap-8">
           <img
-            class="rounded-lg"
+            class="rounded-lg aspect-[4/3]"
             src={image}
             alt={image_alt}
           />
             <div>
               <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">{title}</h1>
-              <div>
-                <p>{city}</p>
-                <p>{country}</p>
+              <div class="pb-5">
+                <p>{city}, {country}</p>
               </div>
-              <div class="mx-auto my-16 max-w-[900px] font-light leading-6">
-                <h2>Courses at {title}</h2>
-                <ul class="grid lg:grid-cols-2 2xl:grid-cols-3 justify-center gap-12 mt-8 md:mt-16">
-                  {courses.map((course: string, i: number) => (
-                    <li>{course}</li>
-                  ))}
-                </ul>
+              <hr>
+              <ul class="mx-auto max-w-[900px] font-light leading-6 py-5">
+                {courses.map((course: string, i: number) => (
+                  <li>{course}</li>
+                ))}
+              </ul>
+              <hr>
+              <div class="mx-auto my-10 max-w-[900px] font-light leading-6">
+                <slot />
               </div>
-              <slot />
             </div>
         </div>
+        <ProfileList profiles={profiles} />
       </div>
     </section>
   </main>

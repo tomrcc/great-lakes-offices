@@ -14,8 +14,8 @@ type Props = {
 const { slug } = Astro.params
 let pageSlug = slug;
 if (pageSlug === undefined) {
-    pageSlug = "index"
-  };
+  pageSlug = "index"
+};
 const page = await getEntry("pages", pageSlug);
 
 const { frontmatter } = Astro.props
